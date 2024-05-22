@@ -55,6 +55,7 @@ class Electric(db.Model):
     scale = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     color = db.Column(db.String(250), nullable=False)
+    description = db.Column(db.String(250), nullable=False)
     manufacturer = db.Column(db.String(250), nullable=False)
     pickups = db.Column(db.String(250), nullable=False)
     image = db.Column(db.String(500), nullable=True)
@@ -70,6 +71,7 @@ class Electric(db.Model):
             "scale": self.scale,
             "price": self.price,
             "color": self.color,
+            "description": self.description,
             "manufacturer": self.manufacturer,
             "pickups": self.pickups,
             "image": self.image,
@@ -82,6 +84,7 @@ class Acoustic(db.Model):
     scale = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     color = db.Column(db.String(250), nullable=False)
+    description = db.Column(db.String(250), nullable=False)
     manufacturer = db.Column(db.String(250), nullable=False)
     image = db.Column(db.String(500), nullable=True)
     acoustic_favorites = db.relationship(Favorites)
@@ -96,6 +99,7 @@ class Acoustic(db.Model):
             "scale": self.scale,
             "price": self.price,
             "color": self.color,
+            "description": self.description,
             "manufacturer": self.manufacturer,
             "image": self.image,
         }
@@ -107,6 +111,7 @@ class Classical(db.Model):
     scale = db.Column(db.Integer, nullable=False)
     price = db.Column(db.Integer, nullable=False)
     color = db.Column(db.String(250), nullable=False)
+    description = db.Column(db.String(250), nullable=False)
     manufacturer = db.Column(db.String(250), nullable=False)
     image = db.Column(db.String(500), nullable=True)
     classical_favorites = db.relationship(Favorites)
@@ -121,6 +126,7 @@ class Classical(db.Model):
             "scale": self.scale,
             "price": self.price,
             "color": self.color,
+            "description": self.description,
             "manufacturer": self.manufacturer,
             "image": self.image,
         }
