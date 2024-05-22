@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 58e8fa12f5ba
+Revision ID: f4bac79fc2ab
 Revises: 
-Create Date: 2024-05-20 08:39:07.986938
+Create Date: 2024-05-22 07:51:27.131727
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '58e8fa12f5ba'
+revision = 'f4bac79fc2ab'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -24,6 +24,7 @@ def upgrade():
     sa.Column('scale', sa.Integer(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('color', sa.String(length=250), nullable=False),
+    sa.Column('description', sa.String(length=250), nullable=False),
     sa.Column('manufacturer', sa.String(length=250), nullable=False),
     sa.Column('image', sa.String(length=500), nullable=True),
     sa.PrimaryKeyConstraint('id')
@@ -34,6 +35,7 @@ def upgrade():
     sa.Column('scale', sa.Integer(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('color', sa.String(length=250), nullable=False),
+    sa.Column('description', sa.String(length=250), nullable=False),
     sa.Column('manufacturer', sa.String(length=250), nullable=False),
     sa.Column('image', sa.String(length=500), nullable=True),
     sa.PrimaryKeyConstraint('id')
@@ -44,6 +46,7 @@ def upgrade():
     sa.Column('scale', sa.Integer(), nullable=False),
     sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('color', sa.String(length=250), nullable=False),
+    sa.Column('description', sa.String(length=250), nullable=False),
     sa.Column('manufacturer', sa.String(length=250), nullable=False),
     sa.Column('pickups', sa.String(length=250), nullable=False),
     sa.Column('image', sa.String(length=500), nullable=True),
