@@ -176,7 +176,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getPlanetsFeatures: (id) => {
 			 	
-				fetch(`https://vigilant-doodle-9777j7j7q6wwh6qg-3000.app.github.dev/planets/${id}`)
+				fetch(process.env.BACKEND_URL + `/api/acoustic/${id}`)
 		   .then(res => res.json())
 		   .then(data => setStore({ planetsFeatures: data.results }))
 		   .catch(err => console.error(err))}, 
@@ -193,7 +193,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			getStarshipsFeatures: (id) => {
 			 	
-				fetch(`https://vigilant-doodle-9777j7j7q6wwh6qg-3000.app.github.dev/starships/${id}`)
+				fetch(process.env.BACKEND_URL + `/api/classical/${id}`)
 		   .then(res => res.json())
 		   .then(data => setStore({ starshipsFeatures: data.results }))
 		   .catch(err => console.error(err))}, 

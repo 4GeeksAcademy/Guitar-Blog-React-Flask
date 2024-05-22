@@ -78,7 +78,7 @@ def get_one_electric(electric_id):
 @guitar_bp.route('/acoustic/<int:acoustic_id>', methods=['GET'])
 def get_one_acoustic(acoustic_id):
 
-    query_result = Electric.query.filter_by(id=acoustic_id).first()
+    query_result = Acoustic.query.filter_by(id=acoustic_id).first()
     if query_result is None:
         return jsonify({"msg": "there is no acoustic guitar matching the ID provided"}), 404
     
@@ -93,7 +93,7 @@ def get_one_acoustic(acoustic_id):
 @guitar_bp.route('/classical/<int:classical_id>', methods=['GET'])
 def get_one_classical(classical_id):
 
-    query_result = Electric.query.filter_by(id=classical_id).first()
+    query_result = Classical.query.filter_by(id=classical_id).first()
     if query_result is None:
         return jsonify({"msg": "there is no classical guitar matching the ID provided"}), 404
     

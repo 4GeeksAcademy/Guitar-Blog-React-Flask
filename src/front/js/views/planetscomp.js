@@ -26,7 +26,6 @@ export const PlanetsComp = () => {
                         <img src={item.image} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
                         <div className="card-body">
                             <h5 className="card-title">{item.model}</h5>
-                            <h5 className="card-title">{item.color}</h5>
                         </div>
                         <div className="footer">
                             <Link to={`/planets/${item.id}`}>
