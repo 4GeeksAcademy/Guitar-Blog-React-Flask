@@ -4,23 +4,21 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 
-export const PlanetsComp = () => {
+export const ClassicalComp = () => {
 
 
     const { store, actions } = useContext(Context);
 
 
     useEffect(() => {
-        actions.getPlanets();
-
+        actions.getClassical();
     }, []);
-    console.log(store.planets);
 
 
     return (
 
         <div className="card-people d-flex">
-            {store.planets.map((item, index) => (
+            {store.classical.map((item, index) => (
                 <div className="card-group" key={index}>
                     <div className="card">
                         <img src={item.image} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
@@ -28,7 +26,7 @@ export const PlanetsComp = () => {
                             <h5 className="card-title">{item.model}</h5>
                         </div>
                         <div className="footer">
-                            <Link to={`/planets/${item.id}`}>
+                            <Link to={`/classical/${item.id}`}>
                                 <button className="boton-learn" >Learn More!</button>
                             </Link>
                         </div>

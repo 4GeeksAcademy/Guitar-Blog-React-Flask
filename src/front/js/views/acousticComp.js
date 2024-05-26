@@ -4,22 +4,22 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 
-export const StarshipsComp = () => {
+export const AcousticComp = () => {
 
 
     const { store, actions } = useContext(Context);
 
 
     useEffect(() => {
-        actions.getStarships();
+        actions.getAcoustic();
+
     }, []);
-    console.log(store.starships);
 
 
     return (
 
         <div className="card-people d-flex">
-            {store.starships.map((item, index) => (
+            {store.acoustic.map((item, index) => (
                 <div className="card-group" key={index}>
                     <div className="card">
                         <img src={item.image} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
@@ -27,7 +27,7 @@ export const StarshipsComp = () => {
                             <h5 className="card-title">{item.model}</h5>
                         </div>
                         <div className="footer">
-                            <Link to={`/starships/${item.id}`}>
+                            <Link to={`/acoustic/${item.id}`}>
                                 <button className="boton-learn" >Learn More!</button>
                             </Link>
                         </div>

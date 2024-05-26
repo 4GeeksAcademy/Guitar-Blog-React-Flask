@@ -7,9 +7,9 @@ import { Home } from "./views/home";
 import { Signup } from "./views/signup";
 import { Login } from "./views/login";
 import { Favorites } from "./views/favorites";
-import { People } from "./views/people";
-import { Planets } from "./views/planets";
-import { Starships } from "./views/starships";
+import { Electric } from "./views/electric";
+import { Acoustic } from "./views/acoustic";
+import { Classical } from "./views/classical";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -22,16 +22,16 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div className="bg-dark">
+		
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>	
 					<Navbar />
 					<Routes>
 						<Route path="/" element={<Home />} />
 						<Route path="/signup" element={<Signup />} />
-						<Route path="/people/:id" element={<People />} />
-						<Route path="/planets/:id" element={<Planets />} />
-						<Route path="/starships/:id" element={<Starships />} />
+						<Route path="/electric/:id" element={<Electric />} />
+						<Route path="/acoustic/:id" element={<Acoustic />} />
+						<Route path="/classical/:id" element={<Classical />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/favorites" element={<Favorites />} />
 						<Route path="*" element={<h1>Not found!</h1>} />
@@ -39,7 +39,7 @@ const Layout = () => {
 					<Footer />
 				</ScrollToTop>
 			</BrowserRouter>
-		</div>
+		
 	);
 };
 

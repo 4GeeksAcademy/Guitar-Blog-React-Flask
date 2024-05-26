@@ -119,4 +119,9 @@ form {
     font-weight: 400;
     font-style: normal;
   }
+
+body {
+    height:max-content;
+    background: red;
+}
   

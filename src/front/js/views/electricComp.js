@@ -1,37 +1,38 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState, useSyncExternalStore } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
+import { Link } from "react-router-dom";
 
 
 
-export const Favorites = () => {
+
+export const ElectricComp = () => {
 
 
     const { store, actions } = useContext(Context);
 
 
     useEffect(() => {
-        actions.getFavorites();
+        actions.getElectric();
     }, []);
 
 
     return (
         <>
             <div className="card-people d-flex">
-                {store.favourites.map((item, index) => {
-                    console.log(item); // Aquí agregamos el console.log para ver el contenido de cada item
+                {store.electric.map((item, index) => {
+                    console.log(item);
                     return (
                         <div className="card-group" key={index}>
                             <div className="card">
-                                <img src={item.favorite.image} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
+                                <img src={item.image} style={{ objectFit: "cover" }} className="card-img-top" alt="guitar picture" />
                                 <div className="card-body">
-                                    <h5 className="card-title">{item.favorite.model}</h5>
+                                    <h5 className="card-title">{item.model}</h5>
                                 </div>
                                 <div className="footer">
-                                    
-                                        <button className="boton-learn bg-secondary" onClick={() =>
-							actions.deleteFavourite(item.id)}>Delete!</button>
-                                    
+                                    <Link to={`/electric/${item.id}`}>
+                                        <button className="boton-learn">Learn More!</button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

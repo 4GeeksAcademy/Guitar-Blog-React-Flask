@@ -4,13 +4,13 @@ const getState = ({ getStore, getActions, setStore }) => {
 	return {
 
 		store: {
-			people: [],
-			planets: [],
-			starships: [],
+			electric: [],
+			acoustic: [],
+			classical: [],
 
-			peopleFeatures: {},
-		    planetsFeatures: {},
-			starshipsFeatures: {},
+			electricData: {},
+			acousticData: {},
+			classicalData: {},
 
 			favourites: [],
 			// counter: 0,
@@ -19,33 +19,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		
 		actions: {
 
-			addFavouritePlanet :async (id)=>{
-				let token = localStorage.getItem("token")
-				try {
-					const response = await fetch(process.env.BACKEND_URL + `/api/favorites/acoustic/${id}`, 
-					
-					{
-						method: "POST",
-						headers: {
-							"Content-Type": "application/json",
-							"Authorization": "Bearer " + token
-						},
-
-					})
-					const data = await response.json()
-					console.log(data.results)
-					if (response.status == 200) {
-						setStore({ favourites: data.results })
-					}
-					
-					return true;
-
-				}	catch (error) {
-					return false; 
-				}
-			},
-
-			addFavouriteCharacter :async (id)=>{
+			addFavouriteElectric :async (id)=>{
 				let token = localStorage.getItem("token")
 				try {
 					const response = await fetch(process.env.BACKEND_URL + `/api/favorites/electric/${id}`, 
@@ -70,8 +44,34 @@ const getState = ({ getStore, getActions, setStore }) => {
 					return false; 
 				}
 			},
+
+			addFavouriteAcoustic :async (id)=>{
+				let token = localStorage.getItem("token")
+				try {
+					const response = await fetch(process.env.BACKEND_URL + `/api/favorites/acoustic/${id}`, 
+					
+					{
+						method: "POST",
+						headers: {
+							"Content-Type": "application/json",
+							"Authorization": "Bearer " + token
+						},
+
+					})
+					const data = await response.json()
+					console.log(data.results)
+					if (response.status == 200) {
+						setStore({ favourites: data.results })
+					}
+					
+					return true;
+
+				}	catch (error) {
+					return false; 
+				}
+			},
 	
-			addFavouriteStarship :async (id)=>{
+			addFavouriteClassical :async (id)=>{
 				let token = localStorage.getItem("token")
 				try {
 					const response = await fetch(process.env.BACKEND_URL + `/api/favorites/classical/${id}`, 
@@ -139,7 +139,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					const data = await response.json()
 					console.log(data)
-					if (response.status == 200) return true;
+					if (response.status == 200) {
+						window.location.reload();
+						return true
+					}
 
 				} catch (error) {
 					return false; 
@@ -147,55 +150,55 @@ const getState = ({ getStore, getActions, setStore }) => {
 			},
 
 
-			getPeople: () => {
-					fetch(process.env.BACKEND_URL + '/api/electric-guitars')
+			getAcoustic: () => {
+					fetch(process.env.BACKEND_URL + '/api/acoustic-guitars')
 						.then(res => res.json())
-						.then(data => setStore({ people: data.results }))
+						.then(data => setStore({ acoustic: data.results }))
 						.catch(err => console.error(err))
 			},
 
-			 getPeopleFeatures: (id) => {
+			 getAcousticData: (id) => {
 			 	
-			 	fetch(process.env.BACKEND_URL + `/api/electric/${id}`)
+			 	fetch(process.env.BACKEND_URL + `/api/acoustic/${id}`)
 			.then(res => res.json())
-			.then(data => setStore({ peopleFeatures: data.results }))
+			.then(data => setStore({ acousticData: data.results }))
 			// .then(data => console.log(data))
 			.catch(err => console.error(err))}, 
 
 
 
 
-			getPlanets: () => {
+			getElectric: () => {
 
-				fetch(process.env.BACKEND_URL + '/api/acoustic-guitars')
+				fetch(process.env.BACKEND_URL + '/api/electric-guitars')
 					.then(res => res.json())
-					.then(data => setStore({ planets: data.results }))
+					.then(data => setStore({ electric: data.results }))
 					.catch(err => console.error(err))
 
 			},
 
-			getPlanetsFeatures: (id) => {
+			getElectricData: (id) => {
 			 	
-				fetch(process.env.BACKEND_URL + `/api/acoustic/${id}`)
+				fetch(process.env.BACKEND_URL + `/api/electric/${id}`)
 		   .then(res => res.json())
-		   .then(data => setStore({ planetsFeatures: data.results }))
+		   .then(data => setStore({ electricData: data.results }))
 		   .catch(err => console.error(err))}, 
 
 
-			getStarships: () => {
+			getClassical: () => {
 
 				fetch(process.env.BACKEND_URL + '/api/classical-guitars')
 					.then(res => res.json())
-					.then(data => setStore({ starships: data.results }))
+					.then(data => setStore({ classical: data.results }))
 					.catch(err => console.error(err))
 
 			},
 
-			getStarshipsFeatures: (id) => {
+			getClassicalData: (id) => {
 			 	
 				fetch(process.env.BACKEND_URL + `/api/classical/${id}`)
 		   .then(res => res.json())
-		   .then(data => setStore({ starshipsFeatures: data.results }))
+		   .then(data => setStore({ classicalData: data.results }))
 		   .catch(err => console.error(err))}, 
 
 
@@ -216,7 +219,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json()
 					if (response.status == 200) {
 						localStorage.setItem("token", data.access_token)
-						console.log(data)
 						return true;
 					}
 					else {
@@ -249,9 +251,8 @@ const getState = ({ getStore, getActions, setStore }) => {
 					})
 					const data = await response.json()
 					if (response.status == 200) {
-						// localStorage.setItem("token", data.access_token)
+						
 					}
-					console.log(data)
 					return true;
 				}	catch (error) {
 					return false; 
@@ -275,7 +276,6 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					})
 					let data = await response.json()
-					console.log(data)
 					if (response.status == 200) {
 						setStore({auth: data.is_logged})
 					}
