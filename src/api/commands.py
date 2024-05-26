@@ -110,6 +110,14 @@ def setup_commands(app):
                          pickups="Single-coil",
                          image="https://images.unsplash.com/photo-1520166012956-add9ba0835cb?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGZlbmRlciUyMGphenptYXN0ZXJ8ZW58MHx8MHx8fDA%3D",
                          description="The Fender Jazzmaster offers a unique tonal palette with its offset body and distinctive single-coil pickups. It's favored by indie and alternative musicians for its versatility and smooth playability."),
+                Electric(model="Pacifico",
+                         scale=25,
+                         price=1800,
+                         color="Indigo Blue",
+                         manufacturer="Yamaha",
+                         pickups="Humbucker",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQp2UEYvXP63_szRbvfeNxxtKaVLAKAN8wCA&s",
+                         description="The Yamaha Pacifica offers a unique tonal palette with its offset body and distinctive single-coil pickups. It's favored by indie and alternative musicians for its versatility and smooth playability."),
             ]
             db.session.add_all(electrics)
             db.session.commit()
@@ -150,6 +158,13 @@ def setup_commands(app):
                          manufacturer="Epiphone",
                          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxPZjDEuFwrEiWtfxHzoBVjb9xsbmefN9ueg&s",
                          description="The Epiphone DR-100 is a budget-friendly acoustic guitar, ideal for beginners. Its dreadnought body and sunburst finish provide a classic look and sound."),
+                Acoustic(model="FGX5 NT",
+                         scale=25,
+                         price=1150,
+                         color="Natural",
+                         manufacturer="Yamaha",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9gWKeWwGS9xD5JKMzAKPwk4S4gmxPj9ZKfw&s",
+                         description="The Yamaha FGX5 NT is a budget-friendly acoustic guitar, ideal for exlperts. Its dreadnought body and sunburst finish provide a classic look and sound."),
             ]
             db.session.add_all(acoustics)
             db.session.commit()
@@ -190,6 +205,14 @@ def setup_commands(app):
                           manufacturer="Cordoba",
                           image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx0ubGQZrm-zzRhiPpG-oAhDP0YXGZaY7_kw&s",
                           description="The Cordoba Protege C1M is a great entry-level classical guitar, offering excellent playability and a warm, full sound. Its spruce top and mahogany back and sides provide a balanced tone."),
+                Classical(model="Yamaha C40II",
+                          scale=25,
+                          price=150,
+                          color="Natural",
+                          manufacturer="Yamaha",
+                          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQixYq9Tg-CV_uXZqwFDb4UeO_ZQ3wv7SiQkg&s",
+                          description="The Yamaha C40II is a highly regarded entry-level classical guitar, known for its excellent build quality and rich, warm sound."),
+
             ]
             db.session.add_all(classicals)
             db.session.commit()

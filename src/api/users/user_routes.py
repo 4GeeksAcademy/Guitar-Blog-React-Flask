@@ -124,6 +124,7 @@ def signup():
     last_name = request.json.get("last_name", None)
     email = request.json.get("email", None)
     password = request.json.get("password", None)
+    is_active = True
 
     user_exists = User.query.filter_by(email=email).first()
 
@@ -132,7 +133,8 @@ def signup():
             first_name=first_name,
             last_name=last_name,
             email=email,
-            password=password
+            password=password,
+            is_active=is_active
         )
         db.session.add(new_user)
         db.session.commit()

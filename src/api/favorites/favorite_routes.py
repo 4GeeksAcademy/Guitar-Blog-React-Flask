@@ -21,23 +21,50 @@ def get_all_favorites_of_user():
 
     user_exists = User.query.filter_by(email=email).first()
 
-    if user_exists is None: 
-           return jsonify({"msg": "This user does not exist"}), 401
+    if user_exists is None:
+        return jsonify({"msg": "This user does not exist"}), 401
 
-    # user_id = user_exists.id
+    favorites = Favorites.query.filter_by(user_id=user_exists.id).all()
+    favorites_list = []
 
-    query_results = Favorites.query.all()
+    for favorite in favorites:
+        favorite_data = None
 
-    # planet_exists = Planets.query.filter_by(id=planet_id).first()
-    
+        if favorite.electric_id:
+            electric = Electric.query.get(favorite.electric_id)
+            favorite_data = {
+                "model": electric.model,
+                "image": electric.image,
+                "type": "electric"
+            } if electric else None
 
-    if query_results:
-        results = list(map(lambda item: item.serialize(), query_results))
-        print(results)
-        return jsonify({"msg": "ok", "results": results}), 200
-    
-    else: 
+        elif favorite.acoustic_id:
+            acoustic = Acoustic.query.get(favorite.acoustic_id)
+            favorite_data = {
+                "model": acoustic.model,
+                "image": acoustic.image,
+                "type": "acoustic"
+            } if acoustic else None
+
+        elif favorite.classical_id:
+            classical = Classical.query.get(favorite.classical_id)
+            favorite_data = {
+                "model": classical.model,
+                "image": classical.image,
+                "type": "classical"
+            } if classical else None
+
+        if favorite_data:
+            favorites_list.append({
+                "id": favorite.id,
+                "favorite": favorite_data
+            })
+
+    if favorites_list:
+        return jsonify({"msg": "ok", "results": favorites_list}), 200
+    else:
         return jsonify({"msg": "this user has no favorites yet"}), 404
+
     
 
 # Add favorite electric

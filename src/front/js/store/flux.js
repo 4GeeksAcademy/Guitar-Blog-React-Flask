@@ -22,7 +22,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavouritePlanet :async (id)=>{
 				let token = localStorage.getItem("token")
 				try {
-					const response = await fetch(process.env.BACKEND_URL + `/api/favorites/electric/${id}`, 
+					const response = await fetch(process.env.BACKEND_URL + `/api/favorites/acoustic/${id}`, 
 					
 					{
 						method: "POST",
@@ -48,7 +48,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavouriteCharacter :async (id)=>{
 				let token = localStorage.getItem("token")
 				try {
-					const response = await fetch(`https://vigilant-doodle-9777j7j7q6wwh6qg-3000.app.github.dev/favorites/character/${id}`, 
+					const response = await fetch(process.env.BACKEND_URL + `/api/favorites/electric/${id}`, 
 					
 					{
 						method: "POST",
@@ -74,7 +74,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			addFavouriteStarship :async (id)=>{
 				let token = localStorage.getItem("token")
 				try {
-					const response = await fetch(`https://vigilant-doodle-9777j7j7q6wwh6qg-3000.app.github.dev/favorites/starship/${id}`, 
+					const response = await fetch(process.env.BACKEND_URL + `/api/favorites/classical/${id}`, 
 					
 					{
 						method: "POST",
@@ -100,7 +100,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			getFavorites: async () => {
 				let token = localStorage.getItem("token")
 				try  {
-					const response = await fetch("https://vigilant-doodle-9777j7j7q6wwh6qg-3000.app.github.dev/user/favorites", 
+					const response = await fetch(process.env.BACKEND_URL + '/api/user/favorites', 
 					{
 						method: "GET",
 						headers: {
@@ -128,7 +128,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			deleteFavourite: async (id) => {
 				let token = localStorage.getItem("token")
 				try {
-					const response = await fetch(`https://vigilant-doodle-9777j7j7q6wwh6qg-3000.app.github.dev/favorites/${id}`, 
+					const response = await fetch(process.env.BACKEND_URL + `/api/favorites/${id}`, 
 					{
 						method: "DELETE",
 						headers: {
@@ -201,7 +201,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 			login: async (email, password) => {
 				try  {
-					const response = await fetch("https://vigilant-doodle-9777j7j7q6wwh6qg-3000.app.github.dev/login", 
+					const response = await fetch(process.env.BACKEND_URL +'/api/login', 
 					{
 						method: "POST",
 						headers: {
@@ -233,7 +233,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			
 			signUp: async (firstName, lastName,email, password) => {
 				try  {
-					const response = await fetch("https://vigilant-doodle-9777j7j7q6wwh6qg-3000.app.github.dev/signup", 
+					const response = await fetch(process.env.BACKEND_URL +'/api/signup', 
 					{
 						method: "POST",
 						headers: {
@@ -265,7 +265,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			validToken: async () => {
 				let token = localStorage.getItem("token")
 				try  {
-					const response = await fetch("https://vigilant-doodle-9777j7j7q6wwh6qg-3000.app.github.dev/valid-token", 
+					const response = await fetch(process.env.BACKEND_URL +'/api/valid-token', 
 					{
 						method: "GET",
 						headers: {
@@ -279,7 +279,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 					if (response.status == 200) {
 						setStore({auth: data.is_logged})
 					}
-					console.log(data)
+					else {
+						setStore({auth: false})
+					}
 					
 				}	catch (error) {
 					console.log(error); 

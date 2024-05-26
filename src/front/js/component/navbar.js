@@ -12,34 +12,37 @@ export const Navbar = () => {
 	const navigate = useNavigate();
 
 
-	const handleLogout = () => {
+	const handleLogout = async () => {
 		localStorage.removeItem("token");
-		navigate("/login")
+		await actions.validToken();  // Si `validToken` es una función asincrónica, usa `await`.
+		navigate("/login");
 	}
+	
 
 	return (
-
-		<nav class="navbar bg-dark border-bottom border-body p-0" data-bs-theme="dark">
-			<div className="container-fluid p-0">
-				<div className="row">
-				<Link to={"/"} style={{ textDecoration: 'none', color: "white"}} >
-					<span className="navbar-brand ms-5">Home</span>
+		<nav className="navbar bg-dark border-bottom" data-bs-theme="dark">
+			<div className="container d-flex justify-content-between">
+				<div className="d-flex col-4 justify-content-start">
+					<Link to={"/"} style={{ textDecoration: 'none', color: "white" }}>
+						<span className="navbar-brand">Home</span>
 					</Link>
-					</div>
-					{/* <img src={starwarsyellow} alt="Logo" style={{ width: "90px", height: "90px", objectFit: "contain" }} className="d-inline-block align-text-center" /> */}
-					<h1 className="text-white">Osian's Guitars</h1>
-					
-					{store.auth ? <div className="d-inline-block align-text-center"><Link to={"/favorites"} style={{ textDecoration: 'none', color: "white"}}>
-						<span className="navbar-brand ms-5">Your Favorites</span>
-					</Link></div> : null}
-				
-				<div className="d-inline-block align-text-center">
-					<Link to={"/login"} style={{ textDecoration: 'none', textAlign: "center" }}>
+					{store.auth && (
+						<Link to={"/favorites"} style={{ textDecoration: 'none', color: "white" }}>
+							<span className="navbar-brand ms-3">Your Favorites</span>
+						</Link>
+					)}
+				</div>
+				<div className="d-flex col-4 justify-content-center">
+					<h1 className="sevillana-regular text-white">Osian's Guitars</h1>
+				</div>
+				<div className="d-flex col-4 justify-content-end">
+					<Link to={"/login"} style={{ textDecoration: 'none', color: "white", marginRight: '10px' }}>
 						<span className="login-link">Log In</span>
 					</Link>
-					<span className="login-link" onClick={handleLogout}>Log Out</span>
+					<span className="login-link" style={{ color: "white", cursor: "pointer" }} onClick={handleLogout}>Log Out</span>
 				</div>
 			</div>
 		</nav>
 	);
+	
 };

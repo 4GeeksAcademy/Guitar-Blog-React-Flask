@@ -69,7 +69,6 @@
 
     z-index: 10;
     width: 100%;
-    margin-top: 0px;
 }
 
 .iconosw {
@@ -114,3 +113,10 @@ form {
     display: flex; 
     align-content: flex-end;
 }
+
+.sevillana-regular {
+    font-family: "Sevillana", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  

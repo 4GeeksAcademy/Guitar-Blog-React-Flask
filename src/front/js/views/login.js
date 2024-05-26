@@ -18,6 +18,7 @@ export const Login = () => {
 		let logged_in = await actions.login(email, password);
 		console.log(logged_in);
 			if (logged_in){
+				actions.validToken()
 				navigate("/")
 			}
 			else {
