@@ -2,17 +2,7 @@
     margin: 20px;
 }
 
-
-img {
-    width: 400px;
-    height: 200px;
-    background: grey;
-
-}
-
 .card {
-    
-    display: flex;
     color: white; 
     background: rgb(53, 51, 51); 
     margin-top: 20px; 
@@ -20,7 +10,7 @@ img {
 }
 
 .card-people {
-    width: 100%;
+    /* width: 100%; */
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;

@@ -22,7 +22,7 @@ export const AcousticComp = () => {
             {store.acoustic.map((item, index) => (
                 <div className="card-group" key={index}>
                     <div className="card">
-                        <img src={item.image} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
+                    <img src={item.image} style={{maxWidth: "250px", maxHeight: "150px", objectFit: "cover" }} className="card-img-top" alt="guitar picture" />
                         <div className="card-body">
                             <h5 className="card-title">{item.model}</h5>
                         </div>

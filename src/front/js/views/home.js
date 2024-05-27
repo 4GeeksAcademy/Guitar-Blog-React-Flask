@@ -9,11 +9,14 @@ export const Home = () => {
 
 	return (
 		<div className="base container-fluid bg-dark">
-			<h2 className="text-danger ms-4">Electric Guitars</h2>
+			<div className="border"></div>
+			<h1 className="text-danger ms-4 mt-3">Electric Guitars</h1>
 			<ElectricComp />
-			<h2 className="text-danger ms-4">Acoustic Guitars</h2>
+			<div className="border"></div>
+			<h1 className="text-danger ms-4 mt-3">Acoustic Guitars</h1>
 			<AcousticComp/>
-			<h2 className="text-danger ms-4">Classical Guitars</h2>
+			<div className="border"></div>
+			<h1 className="text-danger ms-4 mt-3">Classical Guitars</h1>
 			<ClassicalComp/>
 		</div>
 	);

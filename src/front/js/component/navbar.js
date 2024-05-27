@@ -20,7 +20,7 @@ export const Navbar = () => {
 	
 
 	return (
-		<nav className="navbar bg-dark border-bottom" data-bs-theme="dark">
+		<nav className="navbar bg-dark" data-bs-theme="dark">
 			<div className="container d-flex justify-content-between">
 				<div className="d-flex col-4 justify-content-start">
 					<Link to={"/"} style={{ textDecoration: 'none', color: "white" }}>

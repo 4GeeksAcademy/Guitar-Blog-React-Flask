@@ -47,15 +47,6 @@
     color: black;
 }
 
-.counter {
-    background: grey;
-    border-radius: 100%;
-    width: 35px;
-    height: 35px;
-    padding: 1px;
-
-}
-
 .bean {
     color: black;
 }
@@ -66,7 +57,6 @@
 }
 
 .navbar {
-
     z-index: 10;
     width: 100%;
 }
@@ -125,3 +115,4 @@ body {
     background: red;
 }
   
+
