@@ -14,16 +14,17 @@ export const Favorites = () => {
         actions.getFavorites();
     }, []);
 
+    const favourites = Array.isArray(store.favourites) ? store.favourites : [];
 
     return (
         <>
             <div className="card-people d-flex">
-                {store.favourites.map((item, index) => {
+                {favourites.map((item, index) => {
                     console.log(item); // Aquí agregamos el console.log para ver el contenido de cada item
                     return (
                         <div className="card-group" key={index}>
                             <div className="card">
-                                <img src={item.favorite.image} style={{ objectFit: "cover" }} className="card-img-top" alt="..." />
+                                <img src={item.favorite.image} style={{maxWidth: "250px", maxHeight: "150px", objectFit: "cover" }} className="card-img-top" alt="..." />
                                 <div className="card-body">
                                     <h5 className="card-title">{item.favorite.model}</h5>
                                 </div>

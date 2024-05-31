@@ -8,7 +8,10 @@
 }
 
 .red-line {
-    border-top: 1px solid red;
+    border-top: 5px solid rgb(14, 14, 14);
+    width: 90%;
+    margin-left: 50px;
+
 }
 
 .mini-container {
@@ -19,6 +22,7 @@
 
 .mini-container p {
     font-size: 13px;
+    color: white
 }
 
 #boton-fav {
@@ -40,13 +44,6 @@
     background: yellow;
 }
 
-.dropy {
-    width: 200px;
-    padding-inline: 5px;
-    background-color: cadetblue;
-    color: black;
-}
-
 .bean {
     color: black;
 }
@@ -59,6 +56,7 @@
 .navbar {
     z-index: 10;
     width: 100%;
+    padding: 0px; 
 }
 
 .iconosw {
@@ -68,6 +66,7 @@
 .footer {
     display: flex;
     justify-content: center;
+    height: 100px;
 }
 
 form {
@@ -82,6 +81,11 @@ form {
 
 .navbar-brand:hover {
     text-shadow: 2px 2px 2px yellow;
+    
+}
+
+.navbar-brand {
+    font-size: 30px;
     
 }
 
@@ -111,8 +115,17 @@ form {
   }
 
 body {
-    height:max-content;
-    background: red;
+    /* height:max-content; */
+    background: black;
 }
   
+.buton__favorites {
+    background-color: rgb(186, 9, 9);
+    color: white; 
+}
 
+.buton__favorites:hover {
+    background-color: white;
+    color:rgb(186, 9, 9);
+    font-weight: bold;
+}

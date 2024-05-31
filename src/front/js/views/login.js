@@ -29,9 +29,9 @@ export const Login = () => {
 	return (
 		<div className="container" style={{height: "408px"}}>
 			<div>
-				<h1 className="text-center mt-5">Add a new contact</h1>
+				<h1 className="text-center text-white mt-5">Log In</h1>
 				<form>
-					<div className="form-group">
+					<div className=" text-white form-group">
 						<label>Email</label>
 						<input
 							type="email"
@@ -41,7 +41,7 @@ export const Login = () => {
 							value={email}
 						/>
 					</div>
-					<div className="form-group">
+					<div className="text-white form-group">
 						<label>Password</label>
 						<input
 							type="password"

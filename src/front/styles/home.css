@@ -6,7 +6,8 @@
     color: white; 
     background: rgb(53, 51, 51); 
     margin-top: 20px; 
-    padding-bottom: 10px;
+    margin-inline: 20px;
+    padding: 0px
 }
 
 .card-people {
@@ -49,5 +50,29 @@ p{
 .footer__card {
     display: flex;
     justify-content: space-between;
+    width: 100%;
 }
 
+::-webkit-scrollbar {
+    width: 12px; /* Ancho de la barra de desplazamiento */
+    height: 12px; /* Alto de la barra de desplazamiento horizontal */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #962f2f; /* Fondo del riel de la barra de desplazamiento */
+    border-radius: 50%;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #c5b9b9; /* Color de la barra de desplazamiento */
+    border-radius: 6px; /* Radio de borde para esquinas redondeadas */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f7f4f4; /* Color de la barra de desplazamiento al pasar el cursor */
+  }
+
+  .osian {
+    font-size: 45px;
+    text-shadow: 1px 5px 0 #962f2f;
+  }

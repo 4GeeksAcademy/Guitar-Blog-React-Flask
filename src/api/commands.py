@@ -118,10 +118,43 @@ def setup_commands(app):
                          pickups="Humbucker",
                          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTQp2UEYvXP63_szRbvfeNxxtKaVLAKAN8wCA&s",
                          description="The Yamaha Pacifica offers a unique tonal palette with its offset body and distinctive single-coil pickups. It's favored by indie and alternative musicians for its versatility and smooth playability."),
+                Electric(model="Explorer",
+                         scale=24,
+                         price=1900,
+                         color="White",
+                         manufacturer="Gibson",
+                         pickups="Humbucker",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS95azAUDIykDx_JD2XrCOb8-P6P3GOW94pBA&s",
+                         description="The Gibson Explorer is known for its bold design and powerful sound. Its humbucker pickups and solid body make it a favorite for rock and metal genres."),
+                Electric(model="Firebird",
+                         scale=25,
+                         price=2100,
+                         color="Vintage Sunburst",
+                         manufacturer="Gibson",
+                         pickups="Mini-Humbucker",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRUmt53UIduxcX2o0kN7NCG8XLcgYl0K-B5ww&s",
+                         description="The Gibson Firebird features a unique reverse body design and mini-humbucker pickups, offering a bright, clear tone with excellent sustain."),
+                Electric(model="Mustang",
+                         scale=24,
+                         price=1300,
+                         color="Blue",
+                         manufacturer="Fender",
+                         pickups="Single-coil",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqXLOqiqPURm0NMd9tmAuS66yu4f3zvQP8Ag&s",
+                         description="The Fender Mustang is a short-scale electric guitar, known for its distinctive tone and lightweight body. Its single-coil pickups and dynamic vibrato system make it popular among alternative and indie musicians."),
+                Electric(model="Rickenbacker 330",
+                         scale=24,
+                         price=2200,
+                         color="Jetglo",
+                         manufacturer="Rickenbacker",
+                         pickups="Single-coil",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiylv6tqnzlViiuXuehu_lJYW9zP_mTJi2SQ&s",
+                         description="The Rickenbacker 330 is renowned for its jangly, bright tone and unique body shape. Its single-coil pickups and semi-hollow construction make it a staple in rock and pop music."),
             ]
+
             db.session.add_all(electrics)
             db.session.commit()
-            
+
             acoustics = [
                 Acoustic(model="D-28",
                          scale=25,
@@ -164,11 +197,40 @@ def setup_commands(app):
                          color="Natural",
                          manufacturer="Yamaha",
                          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9gWKeWwGS9xD5JKMzAKPwk4S4gmxPj9ZKfw&s",
-                         description="The Yamaha FGX5 NT is a budget-friendly acoustic guitar, ideal for exlperts. Its dreadnought body and sunburst finish provide a classic look and sound."),
+                         description="The Yamaha FGX5 NT is a budget-friendly acoustic guitar, ideal for experts. Its dreadnought body and sunburst finish provide a classic look and sound."),
+                Acoustic(model="D-18",
+                         scale=25,
+                         price=2900,
+                         color="Natural",
+                         manufacturer="Martin",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8ONZcCwPKqR9VAFcLqmnwgaS9c5d6HIyMZw&s",
+                         description="The Martin D-18 is celebrated for its powerful, clear tone and solid mahogany back and sides. Its dreadnought body provides excellent projection and depth."),
+                Acoustic(model="Songwriter",
+                         scale=25,
+                         price=3200,
+                         color="Natural",
+                         manufacturer="Gibson",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQte7Yb5a_1T1y9wfftnzpdyoV6qzNAUWpwHA&s",
+                         description="The Gibson Songwriter is known for its bright, balanced tone and excellent playability. Its rosewood back and sides and dreadnought body shape make it a versatile choice for various styles."),
+                Acoustic(model="L-00",
+                         scale=24,
+                         price=2600,
+                         color="Vintage Sunburst",
+                         manufacturer="Gibson",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3IRCN3P0WXtfnLXWCUGJqFkaCySThDX1kQA&s",
+                         description="The Gibson L-00 offers a distinctively warm, balanced tone with its small body shape and solid construction. It's favored for blues and fingerstyle playing."),
+                Acoustic(model="F7 Paco",
+                         scale=25,
+                         price=2300,
+                         color="Natural",
+                         manufacturer="Cordoba",
+                         image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgxFiGvWJo7zOfJxIsUEA42DNnWNHPN-BWew&s",
+                         description="The Cordoba F7 Paco is inspired by the legendary flamenco guitarist Paco de Lucía. Its solid cedar top and rosewood back and sides provide a warm, resonant tone perfect for flamenco and classical styles."),
             ]
+
             db.session.add_all(acoustics)
             db.session.commit()
-            
+
             classicals = [
                 Classical(model="C5",
                           scale=25,
@@ -212,10 +274,39 @@ def setup_commands(app):
                           manufacturer="Yamaha",
                           image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQixYq9Tg-CV_uXZqwFDb4UeO_ZQ3wv7SiQkg&s",
                           description="The Yamaha C40II is a highly regarded entry-level classical guitar, known for its excellent build quality and rich, warm sound."),
-
+                Classical(model="Alhambra 3C",
+                          scale=25,
+                          price=600,
+                          color="Natural",
+                          manufacturer="Alhambra",
+                          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZv8ev10Mupvlcjqr1Ocw7uOahXKZp8M4gUg&s",
+                          description="The Alhambra 3C is a mid-range classical guitar, known for its bright, clear tone and high-quality craftsmanship. Its solid cedar top and mahogany back and sides offer excellent resonance."),
+                Classical(model="Kremona Solea",
+                          scale=25,
+                          price=1500,
+                          color="Natural",
+                          manufacturer="Kremona",
+                          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEnJOPgVHX76cj6ngCbavOfLkaePY7iAQThQ&s",
+                          description="The Kremona Solea is a professional-grade classical guitar, renowned for its warm, balanced tone and impeccable craftsmanship. Its solid cedar top and rosewood back and sides provide rich, complex sound."),
+                Classical(model="La Patrie Etude",
+                          scale=25,
+                          price=500,
+                          color="Natural",
+                          manufacturer="La Patrie",
+                          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMJOWkaGFCnid2aJLKLp8B01wuRhQEetjGFA&s",
+                          description="The La Patrie Etude is an excellent student guitar, offering great playability and a rich, full sound. Its solid cedar top and wild cherry back and sides provide a unique tonal character."),
+                Classical(model="Jose Ramirez 2NE",
+                          scale=25,
+                          price=2000,
+                          color="Natural",
+                          manufacturer="Jose Ramirez",
+                          image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ8xt117k2VV3V95LhUuWE_dyRGa7WuN9C5Q&s",
+                          description="The Jose Ramirez 2NE is a top-tier classical guitar, known for its powerful, expressive tone and superb craftsmanship. Its solid cedar top and rosewood back and sides provide excellent projection and sustain."),
             ]
+
             db.session.add_all(classicals)
             db.session.commit()
+
     
             print("Demo database successfully created.")
         except Exception as e:

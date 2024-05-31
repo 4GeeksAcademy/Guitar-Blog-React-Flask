@@ -26,10 +26,10 @@ export const Signup = () => {
 	return (
 		<div className="container" style={{height: "450px"}}>
 			<div>
-				<h1 className="text-center mt-4 text-primary">Sign Up!</h1>
+				<h1 className="text-center mt-4 text-white">Sign Up!</h1>
 				<form>
                 <div className="form-group">
-						<label>First Name</label>
+						<label></label>
 						<input
 							type="text"
 							className="form-control"
@@ -40,7 +40,7 @@ export const Signup = () => {
 						/>
 					</div>
                     <div className="form-group">
-						<label>Last Name</label>
+						<label></label>
 						<input
 							type="text"
 							className="form-control"
@@ -51,7 +51,7 @@ export const Signup = () => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Email</label>
+						<label></label>
 						<input
 							type="email"
 							className="form-control"
@@ -62,7 +62,7 @@ export const Signup = () => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Password</label>
+						<label></label>
 						<input
 							type="password"
 							className="form-control"

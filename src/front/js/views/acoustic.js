@@ -1,26 +1,37 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import { Modal, Button } from "react-bootstrap";
 import "../../styles/demo.css";
 
-
 export const Acoustic = () => {
-	const {id} = useParams();
-	const { store, actions } = useContext(Context);
-	
+    const { id } = useParams();
+    const { store, actions } = useContext(Context);
+    const [showModal, setShowModal] = useState(false);
 
-		useEffect(() => {
-		actions.getAcousticData(id);
+    useEffect(() => {
+        actions.getAcousticData(id);
+    }, []);
 
-	}, []);
+ 
+
+    const handleClose = () => setShowModal(false);
 
 	const storeAcoustic = store.acousticData; 
 
+     // Función para manejar el clic en el botón "Añadir a favoritos"
+     const handleAddToFavorites = () => {
+        actions.addFavouriteAcoustic(storeAcoustic.id);
+        // Mostrar el modal solo cuando se añade a favoritos
+        setShowModal(true);
+    };
+
     return (
-        <div className="container h-100">
+        <>
+        <div className="container h-100 d-flex flex-column align-items-center">
             <div className="card h-75 w-100">
                 <div className="row h-75">
-                    <div className="image-container col-md-4 d-flex align-items-center justify-content-center p-3 mt-5" style={{ height: "300px", overflow: "hidden" }}>
+                    <div className="image-container col-md-4 d-flex align-items-center justify-content-center p-3" style={{ height: "300px", overflow: "hidden" }}>
                         <img src={storeAcoustic.image} alt="guitar_image" className="img-fluid border" style={{ objectFit: "cover", width: "300px", height: "100%" }} />
                     </div>
                     <div className="col-md-8 h-75 mt-5">
@@ -30,21 +41,36 @@ export const Acoustic = () => {
                         </div>
                     </div>
                     <div className="red-line d-flex"></div>
-                    <div className="mini-container d-flex justify-content-evenly mt-3">
+                    <div className="mini-container d-flex justify-content-evenly mt-4">
                         <div><h2>Manufacturer</h2><p>{storeAcoustic.manufacturer}</p></div>
                         <div><h2>Scale</h2><p>{storeAcoustic.scale}</p></div>
                         <div><h2>Color</h2><p>{storeAcoustic.color}</p></div>
-                        <div><h2>Pickups</h2><p>{storeAcoustic.pickups}</p></div>
                         <div><h2>Price</h2><p>{storeAcoustic.price}</p></div>
                     </div>
                 </div>
             </div>
             <div className="footer__card mt-3">
+                <div>
                 <Link to="/">
-                    <button className="btn btn-secondary">Back home</button>
+                    <button className="btn buton__favorites">Back home</button>
                 </Link>
-                <button className="btn btn-secondary" onClick={() => actions.addFavouriteAcoustic(storeAcoustic.id)}>Add to Favorites</button>
+                </div>
+                <div>
+                <button className="btn buton__favorites" onClick={handleAddToFavorites}>Add to Favorites</button>
+                </div>        
             </div>
         </div>
+        <Modal show={showModal} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Message</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>{store.message}</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="primary" onClick={handleClose}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            </>
     );
 };

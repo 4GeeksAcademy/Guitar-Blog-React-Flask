@@ -13,6 +13,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			classicalData: {},
 
 			favourites: [],
+			message: "",
 			// counter: 0,
 			auth: false
 		},
@@ -35,7 +36,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json()
 					console.log(data.results)
 					if (response.status == 200) {
-						setStore({ favourites: data.results })
+						setStore({ message: "Successfully added as a favorite!" })
+					}
+					else if (response.status == 409) {
+						setStore({ message: "You already have this guitar in favorites" })
 					}
 					
 					return true;
@@ -61,7 +65,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const data = await response.json()
 					console.log(data.results)
 					if (response.status == 200) {
-						setStore({ favourites: data.results })
+						setStore({ message: "Successfully added as a favorite!" })
+					}
+					else if (response.status == 409) {
+						setStore({ message: "You already have this guitar in favorites" })
 					}
 					
 					return true;
@@ -85,9 +92,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 
 					})
 					const data = await response.json()
-					console.log(data.results)
 					if (response.status == 200) {
-						setStore({ favourites: data.results })
+						setStore({ message: "Successfully added as a favorite!" })
+					}
+					else if (response.status == 409) {
+						setStore({ message: "You already have this guitar in favorites" })
 					}
 					
 					return true;
